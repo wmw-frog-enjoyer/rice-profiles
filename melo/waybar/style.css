@@ -1,0 +1,116 @@
+/* ===========================================
+ * Minimal Black
+ * =========================================== */
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #000000;
+    color: #f5f5f5;
+}
+
+/* ===========================================
+ * Shared
+ * =========================================== */
+
+#workspaces,
+#taskbar,
+#tray {
+    margin: 0;
+    padding: 0;
+}
+
+#clock,
+#network,
+#custom-notification,
+#tray {
+    padding: 0 10px;
+    margin: 0 6px;
+}
+
+/* ===========================================
+ * Workspaces
+ * =========================================== */
+
+#workspaces button {
+    color: #555;
+    background: transparent;
+    padding: 0 10px;
+    margin: 0;
+    transition: 150ms;
+}
+
+#workspaces button:hover {
+    color: #ddd;
+    background: #111;
+}
+
+#workspaces button.active {
+    color: white;
+    box-shadow: inset 0 -2px white;
+}
+
+#workspaces button.urgent {
+    color: #ff6666;
+}
+
+/* ===========================================
+ * Taskbar
+ * =========================================== */
+
+#taskbar button {
+    color: #888;
+    background: transparent;
+    padding: 0 10px;
+    margin: 0 2px;
+    transition: 150ms;
+}
+
+#taskbar button:hover {
+    background: #111;
+    color: white;
+}
+
+#taskbar button.active {
+    color: white;
+}
+
+/* ===========================================
+ * Modules
+ * =========================================== */
+
+#clock {
+    color: white;
+}
+
+#network {
+    color: #d0d0d0;
+}
+
+#custom-notification {
+    color: #d0d0d0;
+}
+
+#tray {
+    padding-right: 6px;
+}
+
+/* ===========================================
+ * Tooltip
+ * =========================================== */
+
+tooltip {
+    background: #0b0b0b;
+    border: 1px solid #222;
+}
+
+tooltip label {
+    color: white;
+}

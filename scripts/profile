@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+PROFILE="$1"
+RICE="$HOME/github/rice-profiles"
+
+if [ ! -d "$RICE/$PROFILE" ]; then
+    echo "Profile '$PROFILE' does not exist"
+    echo "Available profiles:"
+    ls "$RICE" | grep -v scripts | grep -v wallpapers
+    exit 1
+fi
+
+
+# Waybar
+ln -sfn "$RICE/$PROFILE/waybar/config.jsonc" \
+    "$HOME/.config/waybar/config.jsonc"
+
+ln -sfn "$RICE/$PROFILE/waybar/style.css" \
+    "$HOME/.config/waybar/style.css"
+
+
+# Wofi
+ln -sfn "$RICE/$PROFILE/wofi/style.css" \
+    "$HOME/.config/wofi/style.css"
+
+
+# Fastfetch
+ln -sfn "$RICE/$PROFILE/fastfetch/config.jsonc" \
+    "$HOME/.config/fastfetch/config.jsonc"
+
+
+# Kitty
+ln -sfn "$RICE/$PROFILE/kitty/theme.conf" \
+    "$HOME/.config/kitty/current-theme.conf"
+
+kitty @ load-config >/dev/null 2>&1
+
+
+# Starship
+ln -sfn "$RICE/$PROFILE/starship/starship.toml" \
+    "$HOME/.config/starship.toml"
+
+
+# Wallpaper
+WALLPAPER="$RICE/wallpapers/$PROFILE.jpg"
+
+if pgrep -x hyprpaper >/dev/null; then
+    hyprctl hyprpaper wallpaper "eDP-1,$WALLPAPER,cover"
+fi
+
+
+# Restart Waybar
+pkill waybar
+waybar >/dev/null 2>&1 &
+
+# Refresh terminal
+clear
+
+# Show system info
+fastfetch
+
+echo "Loaded profile: $PROFILE"

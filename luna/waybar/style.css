@@ -1,0 +1,116 @@
+/* --- Global Bar Styling --- */
+* {
+    /* Uses the Nerd Font you installed for perfect icon alignment */
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+    font-size: 12px;
+    font-weight: bold;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0); /* Fully transparent */
+    border: none;
+    color: #ffffff;
+}
+
+/* --- Taskbar (Left) --- */
+#taskbar button {
+    padding: 0 4px;
+    margin: 4px 2px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle glass effect */
+    transition: all 0.3s ease;
+}
+
+#taskbar button.active {
+    background-color: rgba(204, 128, 128, 0.4); /* Your translucent theme color */
+    border-bottom: 2px solid #ffffff;
+}
+
+#taskbar button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Right Side Modules --- */
+#network, #clock, #tray {
+    padding: 0 4px;
+    background-color: transparent;
+}
+
+/* --- The Network Fix --- */
+#network {
+    padding: 0 4px;
+    margin-right: 5px;
+    color: #ffffff;
+    /* This creates a consistent box size so the icon doesn't shift */
+    min-width: 40px;
+}
+
+/* --- Clock Styling --- */
+#clock {
+    color: #ffffff;
+}
+
+/* --- Tray (System Icons) --- */
+#tray {
+    margin-right: 10px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+/* Tooltip styling */
+tooltip {
+    background: rgba(43, 48, 59, 0.9);
+    border: 1px solid rgba(100, 114, 125, 0.5);
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: #ffffff;
+}
+
+#workspaces {
+    margin: 0 5px;
+}
+
+/* 1. The "Ghost" Destroyer */
+#workspaces button {
+    opacity: 0;
+    /* Use a negative margin to eat the ghost space */
+    margin: 0 -10px; 
+    padding: 0;
+    font-size: 0;
+    min-width: 0;
+    border: none;
+    background: transparent;
+}
+
+/* 2. The Visible Anchors & Active slot */
+#workspaces button.persistent,
+#workspaces button.active {
+    opacity: 1;
+    /* Reset margins to positive to create actual gaps between visible buttons */
+    margin: 0 6px; 
+    padding: 0 8px;
+    font-size: 14px;
+    min-width: 20px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* 3. Your Highlighted Workspace */
+#workspaces button.active {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    border-bottom: 2px solid #ffffff;
+}
+
+#custom-notification {
+    font-family: "NotoSansMono Nerd Font";
+}

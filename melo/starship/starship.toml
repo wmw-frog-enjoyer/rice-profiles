@@ -1,0 +1,73 @@
+format = """
+[](#D8D8D8)\
+$directory\
+[](fg:#D8D8D8 bg:#A8A8A8)\
+$git_branch\
+$git_status\
+[](fg:#A8A8A8 bg:#D8D8D8)\
+$c\
+$golang\
+$nodejs\
+$rust\
+$python\
+[](fg:#D8D8D8 bg:#A8A8A8)\
+$time\
+[ ](fg:#A8A8A8)\
+$character"""
+
+command_timeout = 5000
+add_newline = false
+
+[directory]
+style = "bg:#D8D8D8 fg:#121212"
+format = "[ $path ]($style)"
+truncation_length = 3
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = " "
+style = "bg:#A8A8A8 fg:#121212"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#A8A8A8 fg:#121212"
+format = '[$all_status$ahead_behind ]($style)'
+
+[c]
+symbol = " "
+style = "bg:#D8D8D8 fg:#121212"
+format = '[ $symbol ($version) ]($style)'
+
+[golang]
+symbol = " "
+style = "bg:#D8D8D8 fg:#121212"
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = " "
+style = "bg:#D8D8D8 fg:#121212"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = " "
+style = "bg:#D8D8D8 fg:#121212"
+format = '[ $symbol ($version) ]($style)'
+
+[python]
+style = "bg:#D8D8D8 fg:#121212"
+format = '[ $symbol ($version) ]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:#A8A8A8 fg:#121212"
+format = '[ $time ]($style)'
+
+[character]
+success_symbol = "[❯](bold #D8D8D8)"
+error_symbol = "[❯](bold #B06060)"

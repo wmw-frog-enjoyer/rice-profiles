@@ -1,0 +1,67 @@
+/* -----------------------------
+ * Wofi - Minimal Black
+ * ----------------------------- */
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
+}
+
+window {
+    background-color: #111111;
+    border: 1px solid #2d2d2d;
+    border-radius: 10px;
+}
+
+#outer-box {
+    margin: 12px;
+}
+
+#input {
+    margin-bottom: 12px;
+    padding: 10px;
+    background: #1b1b1b;
+    color: #f5f5f5;
+    border: 1px solid #333333;
+    border-radius: 6px;
+}
+
+#input:focus {
+    border-color: #666666;
+}
+
+#scroll {
+    margin: 0;
+}
+
+#inner-box {
+    spacing: 6px;
+}
+
+#entry {
+    padding: 8px 10px;
+    border-radius: 6px;
+    background: transparent;
+    color: #d8d8d8;
+}
+
+#entry:hover {
+    background: #222222;
+}
+
+#entry:selected {
+    background: #2f2f2f;
+    color: #ffffff;
+}
+
+#text {
+    color: inherit;
+}
+
+#text:selected {
+    color: inherit;
+}
+
+#img {
+    margin-right: 10px;
+}
