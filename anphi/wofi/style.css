@@ -1,0 +1,69 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+}
+
+/* ---------- Palette ---------- */
+@define-color base     #223326;
+@define-color mantle   #2A3E2E;
+@define-color surface0 #18251B;
+@define-color surface1 #49654E;
+@define-color text     #D0DDD1;
+@define-color subtext0 #9BAE9D;
+@define-color green    #82AB87;
+
+/* ---------- Window ---------- */
+window {
+    background-color: @base;
+    color: @text;
+    border: 1px solid @surface1;
+    border-radius: 0;
+}
+
+#outer-box {
+    margin: 8px;
+    padding: 0;
+    background-color: transparent;
+}
+
+/* ---------- Search input ---------- */
+#input {
+    margin: 0 0 8px 0;
+    padding: 8px 10px;
+    border-radius: 0;
+    background-color: @mantle;
+    color: @text;
+    border: 1px solid @surface1;
+    caret-color: @green;
+}
+
+#input:focus {
+    outline: none;
+}
+
+/* ---------- List ---------- */
+#inner-box {
+    background-color: transparent;
+}
+
+#entry {
+    padding: 6px 10px;
+    border-radius: 0;
+    background-color: transparent;
+    color: @subtext0;
+}
+
+#entry:selected {
+    background-color: @surface0;
+    color: @green;
+}
+
+#text:selected {
+    color: @green;
+}
+
+/* ---------- Scrollbar ---------- */
+scrollbar slider {
+    background-color: @surface1;
+    border-radius: 0;
+}

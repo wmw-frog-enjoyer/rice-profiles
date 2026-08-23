@@ -1,0 +1,89 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    border-radius: 0;
+}
+
+/* Base background matching terminal #26121B with 92% opacity */
+window#waybar {
+    background-color: rgba(38, 18, 27, 0.92);
+    color: #E8C4D2; /* terminal foreground */
+    border-bottom: 2px solid rgba(184, 117, 146, 0.8); /* #B87592 active border */
+}
+
+/* Module backgrounds matching terminal inactive tabs #341B26 with 92% opacity */
+#workspaces, #taskbar, #clock, #tray {
+    background-color: rgba(52, 27, 38, 0.92);
+    margin: 4px;
+    border-radius: 4px;
+}
+
+#workspaces {
+    margin-left: 8px;
+    padding: 0 4px;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    color: #E8C4D2;
+    border-radius: 4px;
+}
+
+/* Hover state matching inactive border #412330 */
+#workspaces button:hover {
+    background-color: rgba(65, 35, 48, 0.92);
+}
+
+/* Active workspace matching terminal selection colors */
+#workspaces button.active {
+    background-color: #B87592;
+    color: #26121B;
+}
+
+#taskbar {
+    padding: 0 4px;
+}
+
+#taskbar button {
+    padding: 0 6px;
+    margin: 0 2px;
+    border-radius: 4px;
+}
+
+#taskbar button:hover {
+    background-color: rgba(65, 35, 48, 0.92);
+}
+
+#taskbar button.active {
+    background-color: rgba(65, 35, 48, 0.92);
+    border-bottom: 2px solid #B87592;
+}
+
+/* Network module with fully transparent background (no bubble) */
+#network {
+    background-color: transparent;
+    color: #E8C4D2;
+    padding: 0 8px;
+    margin-right: 4px;
+}
+
+/* Disconnected state using terminal color1 (red/pink) */
+#network.disconnected {
+    color: #E06B8A;
+}
+
+#clock, #tray {
+    padding: 0 12px;
+    margin-right: 4px;
+}
+
+/* Clock using terminal url_color for a bright accent */
+#clock {
+    color: #F09ABB;
+}
+
+#tray {
+    margin-right: 8px;
+}

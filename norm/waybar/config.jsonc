@@ -1,0 +1,61 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "spacing": 0,
+
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "wlr/taskbar"
+    ],
+    "modules-right": [
+        "network",
+        "clock",
+        "tray"
+    ],
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate",
+        "all-outputs": true,
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": []
+        }
+    },
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 22,
+        "icon-theme": "Papirus",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+           "kitty",
+           "Kitty",
+           "terminal",
+           "foot",
+           "Alacritty"
+        ]
+    },
+
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪",
+        "tooltip-format": "{essid}"
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip-format": "{:%A, %B %d, %Y}"
+    },
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    }
+}

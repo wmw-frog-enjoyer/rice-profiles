@@ -1,0 +1,74 @@
+/**
+ * Bloodrite — Lowkey Crimson
+ * Wofi theme
+ */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+}
+
+/* ---------- Palette ---------- */
+@define-color base     #171315;
+@define-color mantle   #110E10;
+@define-color surface0 #292023;
+@define-color surface1 #3A2A2E;
+@define-color text     #D1C6C8;
+@define-color subtext0 #8E8084;
+@define-color blood    #8F303D;
+
+/* ---------- Window ---------- */
+window {
+    background-color: @base;
+    color: @text;
+    border: 1px solid @surface1;
+    border-radius: 3px;
+}
+
+#outer-box {
+    margin: 8px;
+    padding: 0;
+    background-color: transparent;
+}
+
+/* ---------- Search input ---------- */
+#input {
+    margin: 0 0 8px 0;
+    padding: 8px 10px;
+    border-radius: 3px;
+    background-color: @mantle;
+    color: @text;
+    border: 1px solid @surface1;
+    caret-color: @blood;
+}
+
+#input:focus {
+    outline: none;
+}
+
+/* ---------- List ---------- */
+#inner-box {
+    background-color: transparent;
+}
+
+#entry {
+    padding: 7px 10px;
+    border-radius: 3px;
+    background-color: transparent;
+    color: @subtext0;
+}
+
+#entry:selected {
+    background-color: @surface0;
+    color: @text;
+}
+
+#text:selected {
+    color: @blood;
+}
+
+/* ---------- Scrollbar ---------- */
+scrollbar slider {
+    background-color: @surface1;
+    border-radius: 2px;
+}

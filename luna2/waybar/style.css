@@ -1,0 +1,113 @@
+/* Bloodrite — lowkey minimal Waybar */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+    font-size: 12px;
+    font-weight: bold;
+}
+
+window#waybar {
+    background: transparent;
+    border: none;
+    color: #D1C6C8;
+}
+
+/* ── Taskbar ───────────────────────────── */
+
+#taskbar button {
+    padding: 0 5px;
+    margin: 4px 2px;
+    background: rgba(25, 18, 21, 0.65);
+    border: none;
+    border-radius: 3px;
+}
+
+#taskbar button.active {
+    background: rgba(126, 32, 43, 0.32);
+    border-bottom: 2px solid #8F303D;
+}
+
+#taskbar button:hover {
+    background: rgba(80, 38, 45, 0.35);
+}
+
+/* ── Right side ────────────────────────── */
+
+#network,
+#clock,
+#tray {
+    padding: 0 5px;
+    color: #D1C6C8;
+}
+
+#network {
+    min-width: 40px;
+    margin-right: 5px;
+}
+
+#tray {
+    margin-right: 10px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    color: #8F303D;
+}
+
+/* ── Workspaces ────────────────────────── */
+
+#workspaces {
+    margin: 0 5px;
+}
+
+#workspaces button {
+    opacity: 0;
+    margin: 0 -10px;
+    padding: 0;
+    min-width: 0;
+    font-size: 0;
+    border: none;
+    background: transparent;
+}
+
+#workspaces button.persistent,
+#workspaces button.active {
+    opacity: 1;
+    margin: 0 5px;
+    padding: 0 7px;
+    min-width: 18px;
+    font-size: 13px;
+    color: #76696D;
+    background: transparent;
+    border: none;
+}
+
+#workspaces button.active {
+    color: #D1C6C8;
+    background: rgba(126, 32, 43, 0.32);
+    border-bottom: 2px solid #8F303D;
+    border-radius: 3px;
+}
+
+/* ── Notification ──────────────────────── */
+
+#custom-notification {
+    font-family: "NotoSansMono Nerd Font";
+    color: #8F303D;
+}
+
+/* ── Tooltips ──────────────────────────── */
+
+tooltip {
+    background: #191215;
+    border: 1px solid #51252D;
+    border-radius: 3px;
+}
+
+tooltip label {
+    color: #D1C6C8;
+}

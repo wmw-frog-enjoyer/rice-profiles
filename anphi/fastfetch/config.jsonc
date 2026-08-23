@@ -1,0 +1,53 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+    "logo": {
+        "type": "kitty",
+        "source": "~/github/rice-profiles/anphi/fastfetch/image.jpg",
+        "width": 30,
+        "preserveAspectRatio": true,
+        "padding": {
+            "top": 2,
+            "left": 2,
+            "right": 6
+        }
+    },
+
+    "display": {
+        "separator": " -> ",
+        "color": {
+            "keys": "38;2;127;175;131"
+        }
+    },
+
+    "modules": [
+        {
+            "type": "custom",
+            "format": "\n\n"
+        },
+
+        {
+            "type": "title",
+            "format": "Amphibians are the best!",
+            "color": {
+                "user": "38;2;127;175;131",
+                "at": "white",
+                "host": "38;2;127;175;131"
+            }
+        },
+
+        {
+            "type": "custom",
+            "format": "────────────────────"
+        },
+
+        "os",
+        "kernel",
+        "uptime",
+        "wm",
+        "terminal",
+        "cpu",
+        "gpu",
+        "memory"
+    ]
+}

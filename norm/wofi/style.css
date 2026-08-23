@@ -1,0 +1,69 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+}
+
+/* ---------- Palette (pinkfrog) ---------- */
+@define-color base      rgba(38, 18, 27, 0.92);   /* Terminal bg #26121B */
+@define-color mantle    rgba(52, 27, 38, 0.92);   /* Inactive tabs #341B26 */
+@define-color surface0  rgba(65, 35, 48, 0.92);   /* Inactive border #412330 */
+@define-color surface1  rgba(184, 117, 146, 0.8); /* Active border #B87592 */
+@define-color text      #E8C4D2;                  /* Foreground */
+@define-color subtext0  #A77A8D;                  /* Inactive text */
+@define-color pink      #F09ABB;                  /* Bright accent (URL color) */
+
+/* ---------- Window ---------- */
+window {
+    background-color: @base;
+    color: @text;
+    border: 1px solid @surface1;
+    border-radius: 0;
+}
+
+#outer-box {
+    margin: 8px;
+    padding: 0;
+    background-color: transparent;
+}
+
+/* ---------- Search input ---------- */
+#input {
+    margin: 0 0 8px 0;
+    padding: 8px 10px;
+    border-radius: 0;
+    background-color: @mantle;
+    color: @text;
+    border: 1px solid @surface1;
+    caret-color: @pink;
+}
+
+#input:focus {
+    outline: none;
+}
+
+/* ---------- List ---------- */
+#inner-box {
+    background-color: transparent;
+}
+
+#entry {
+    padding: 6px 10px;
+    border-radius: 0;
+    background-color: transparent;
+    color: @subtext0;
+}
+
+#entry:selected {
+    background-color: @surface0;
+    color: @pink;
+}
+
+#text:selected {
+    color: @pink;
+}
+
+/* ---------- Scrollbar ---------- */
+scrollbar slider {
+    background-color: @surface1;
+    border-radius: 0;
+}

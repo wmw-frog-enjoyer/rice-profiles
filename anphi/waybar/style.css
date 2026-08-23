@@ -1,0 +1,130 @@
+* {
+    border: none;
+    min-height: 0;
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans";
+    font-size: 13px;
+}
+
+window#waybar {
+    background: #18251b;
+    color: #cbd8cc;
+}
+
+/* ───────────── WORKSPACES ───────────── */
+
+#workspaces {
+    margin: 5px 8px;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    margin: 0 2px;
+    border-radius: 7px;
+    color: #78947d;
+    background: transparent;
+}
+
+#workspaces button:hover {
+    color: #b5c8b8;
+    background: #26372a;
+}
+
+#workspaces button.active {
+    color: #d8e5da;
+    background: #38583e;
+}
+
+#workspaces button.urgent {
+    color: #ead4d4;
+    background: #603838;
+}
+
+/* ───────────── CENTER TASKBAR ───────────── */
+
+#taskbar {
+    margin: 4px 0;
+    padding: 0 5px;
+}
+
+#taskbar button {
+    padding: 0 7px;
+    margin: 0 2px;
+    border-radius: 7px;
+    background: transparent;
+}
+
+#taskbar button:hover {
+    background: #26372a;
+}
+
+#taskbar button.active {
+    background: #38583e;
+}
+
+/* ───────────── NOTIFICATIONS ───────────── */
+
+#custom-notification {
+    min-width: 24px;
+    margin: 0 3px;
+    padding: 0;
+    color: #9ab49e;
+}
+
+#custom-notification:hover {
+    color: #c8d8ca;
+}
+
+/* ───────────── NETWORK ───────────── */
+
+#network {
+    min-width: 24px;
+    margin: 0 5px;
+    padding: 0;
+    color: #9ab49e;
+}
+
+#network:hover {
+    color: #c8d8ca;
+}
+
+/* ───────────── CLOCK ───────────── */
+
+#clock {
+    margin: 5px 3px;
+    padding: 0 12px;
+    border-radius: 7px;
+    background: #38583e;
+    color: #d8e5da;
+    font-weight: bold;
+}
+
+/* ───────────── TRAY ───────────── */
+
+#tray {
+    margin: 0 5px;
+    padding: 0;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray {
+    margin: 5px 3px;
+    padding: 0 10px;
+    border-radius: 7px;
+    background: #38583e;
+}
+
+/* ───────────── TOOLTIPS ───────────── */
+
+tooltip {
+    background: #18251b;
+    border: 1px solid #38583e;
+    border-radius: 6px;
+    color: #cbd8cc;
+}
+
+tooltip label {
+    color: #cbd8cc;
+}
