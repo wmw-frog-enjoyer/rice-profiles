@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+RICE="$HOME/github/rice-profiles"
+
+if [ ! -f "$RICE/state" ]; then
+    exit 0
+fi
+
+PROFILE=$(cat "$RICE/state")
+WALLPAPER="$RICE/wallpapers/$PROFILE.jpg"
+
+if [ ! -f "$WALLPAPER" ]; then
+    exit 0
+fi
+
+sleep 1
+
+hyprctl monitors -j | jq -r '.[].name' | while read -r MONITOR; do
+    hyprctl hyprpaper wallpaper "$MONITOR,$WALLPAPER,cover"
+done
