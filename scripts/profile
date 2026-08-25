@@ -3,6 +3,38 @@
 PROFILE="$1"
 RICE="$HOME/github/rice-profiles"
 
+# Wallpaper backend
+if [ "$PROFILE" = "set" ]; then
+    case "$2" in
+        swww)
+            echo "swww" > "$RICE/wallpaper-backend"
+            pkill -x hyprpaper 2>/dev/null
+            if ! pgrep -x swww-daemon >/dev/null; then
+                swww-daemon >/dev/null 2>&1 &
+                sleep 1
+            fi
+            echo "Wallpaper backend: swww"
+            exit 0
+            ;;
+
+        hyprpaper)
+            echo "hyprpaper" > "$RICE/wallpaper-backend"
+            pkill -x swww-daemon 2>/dev/null
+            if ! pgrep -x hyprpaper >/dev/null; then
+                hyprpaper >/dev/null 2>&1 &
+                sleep 1
+            fi
+            echo "Wallpaper backend: hyprpaper"
+            exit 0
+            ;;
+
+        *)
+            echo "Usage: profile set {swww|hyprpaper}"
+            exit 1
+            ;;
+    esac
+fi
+
 if [ ! -d "$RICE/$PROFILE" ]; then
     echo "Profile '$PROFILE' does not exist"
     echo "Available profiles:"
@@ -43,15 +75,41 @@ ln -sfn "$RICE/$PROFILE/starship/starship.toml" \
 
 # Wallpaper
 WALLPAPER="$RICE/wallpapers/$PROFILE.jpg"
+BACKEND=$(cat "$RICE/wallpaper-backend" 2>/dev/null || echo hyprpaper)
 
-if [ -f "$WALLPAPER" ] && pgrep -x hyprpaper >/dev/null; then
+if [ -f "$WALLPAPER" ]; then
+    if [ "$BACKEND" = "swww" ]; then
+        if ! pgrep -x swww-daemon >/dev/null; then
+            swww-daemon >/dev/null 2>&1 &
+            sleep 1
+        fi
+
+        swww img "$WALLPAPER"
+    else
+        if pgrep -x hyprpaper >/dev/null; then
+            hyprctl monitors -j | jq -r '.[].name' | while read -r MONITOR; do
+                hyprctl hyprpaper wallpaper "$MONITOR,$WALLPAPER,cover"
+            done
+        fi
+    fi
+fi
+
+sleep 1
+
+BACKEND=$(cat "$RICE/wallpaper-backend" 2>/dev/null || echo hyprpaper)
+
+if [ "$BACKEND" = "swww" ]; then
+    if ! pgrep -x swww-daemon >/dev/null; then
+        swww-daemon >/dev/null 2>&1 &
+        sleep 1
+    fi
+
+    swww img "$WALLPAPER" >/dev/null 2>&1
+else
     hyprctl monitors -j | jq -r '.[].name' | while read -r MONITOR; do
         hyprctl hyprpaper wallpaper "$MONITOR,$WALLPAPER,cover"
     done
 fi
-
-# Wallpaper saver
-echo "$PROFILE" > "$RICE/state"
 
 
 # Restart Waybar
