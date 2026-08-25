@@ -65,8 +65,7 @@ ln -sfn "$RICE/$PROFILE/fastfetch/config.jsonc" \
 ln -sfn "$RICE/$PROFILE/kitty/theme.conf" \
     "$HOME/.config/kitty/current-theme.conf"
 
-kitty @ load-config >/dev/null 2>&1
-
+kitty @ load-config "$HOME/.config/kitty/current-theme.conf" >/dev/null 2>&1
 
 # Starship
 ln -sfn "$RICE/$PROFILE/starship/starship.toml" \
